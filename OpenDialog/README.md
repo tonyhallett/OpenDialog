@@ -1,0 +1,1 @@
+﻿A copy of [OpenDialog](https://www.google.com) by [Christoph Gattnar](https://github.com/chriga).
