@@ -38,14 +38,13 @@ namespace Gat.Controls.Model
 		#region Fields
 
 		ICollection<OpenFolderItem> _Children;
-		bool _IsSelected;
-		bool _IsExpanded;
+        private bool isSelected;
+        private bool isExpanded;
+        #endregion
 
-		#endregion
+        #region Constructors
 
-		#region Constructors
-
-		public OpenFolderItem()
+        public OpenFolderItem()
 		{
 
 		}
@@ -57,9 +56,28 @@ namespace Gat.Controls.Model
 		}
 
 
-		#endregion
+        #endregion
 
-		public string Name
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set
+            {
+                isSelected = value;
+                OnPropertyChanged("IsSelected");
+            }
+        }
+        
+        public bool IsExpanded
+        {
+            get { return isExpanded; }
+            set
+            {
+                isExpanded = value;
+                OnPropertyChanged("IsExpanded");
+            }
+        }
+        public string Name
 		{
 			get;
 			set;
