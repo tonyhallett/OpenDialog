@@ -35,8 +35,8 @@ namespace Gat.Controls
 	using Gat.Controls.Model;
 	using Gat.Controls.Utilities;
 
-	public class OpenDialogViewModelBase : ViewModelBase
-	{
+	public class OpenDialogViewModelBase : ViewModelBase, IOpenDialogViewModel
+    {
 		#region Fields
 
 		private ObservableCollection<OpenFolderRoot> _Items;

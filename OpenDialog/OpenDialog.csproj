@@ -53,6 +53,8 @@
     <Compile Include="Framework\RelayCommand.cs" />
     <Compile Include="Framework\ViewModelBase.cs" />
     <Compile Include="Framework\VisibilityConverter.cs" />
+    <Compile Include="IOpenDialogFactory.cs" />
+    <Compile Include="IOpenDialogViewModel.cs" />
     <Compile Include="Model\FileItem.cs" />
     <Compile Include="Model\OpenDialogModel.cs" />
     <Compile Include="Model\OpenDialogModelBase.cs" />
