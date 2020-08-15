@@ -13,6 +13,7 @@
 
 	<UserControl.Resources>
 		<frmwrk:VisibilityConverter x:Key="VisibilityConverter" />
+        <frmwrk:NegateBoolConverter x:Key="NegateBoolConverter" />
 	</UserControl.Resources>
 	<UserControl.DataContext>
 		<local:OpenDialogViewModel x:Name="ViewModel"
@@ -183,6 +184,7 @@
 				   Content="{Binding FileNameText}" />
 			<TextBox x:Name="FileName"
 					 Text="{Binding SelectedFilePath}"
+                     IsReadOnly="{Binding IsSaveDialog, Converter={StaticResource NegateBoolConverter}}"
 					 Grid.Column="1"
 					 Grid.Row="0"
 					 Margin="0,5" />
