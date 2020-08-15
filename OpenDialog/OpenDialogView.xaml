@@ -6,6 +6,7 @@
 			 xmlns:local="clr-namespace:Gat.Controls"
 			 xmlns:models="clr-namespace:Gat.Controls.Model"
 			 xmlns:frmwrk="clr-namespace:Gat.Controls.Framework"
+             xmlns:utils="clr-namespace:Gat.Controls.Utilities"
 			 mc:Ignorable="d"
 			 d:DesignHeight="300"
 			 d:DesignWidth="300">
@@ -92,7 +93,10 @@
 					  Background="Transparent"
 					  GridLinesVisibility="None"
 					  SelectionMode="Single">
-				<DataGrid.CellStyle>
+                <DataGrid.Resources>
+                    <utils:BindingProxy x:Key="proxy" Data="{Binding}" />
+                </DataGrid.Resources>
+                <DataGrid.CellStyle>
 					<Style TargetType="DataGridCell">
 						<Style.Triggers>
 							<Trigger Property="IsSelected"
@@ -106,7 +110,7 @@
 				<DataGrid.Columns>
 					<DataGridTemplateColumn	IsReadOnly="True">
 						<DataGridTemplateColumn.Header>
-							<TextBlock Text="{Binding DataContext.NameText, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            <TextBlock Text="{Binding Data.NameText, Source={StaticResource proxy}}" />
 						</DataGridTemplateColumn.Header>
 						<DataGridTemplateColumn.CellTemplate>
 							<DataTemplate>
@@ -125,7 +129,7 @@
 					</DataGridTemplateColumn>
 					<DataGridTemplateColumn	IsReadOnly="True">
 						<DataGridTemplateColumn.Header>
-							<TextBlock Text="{Binding DataContext.DateText, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            <TextBlock Text="{Binding Data.DateText, Source={StaticResource proxy}}" />
 						</DataGridTemplateColumn.Header>
 						<DataGridTemplateColumn.CellTemplate>
 							<DataTemplate>
@@ -136,7 +140,7 @@
 					</DataGridTemplateColumn>
 					<DataGridTemplateColumn IsReadOnly="True">
 						<DataGridTemplateColumn.Header>
-							<TextBlock Text="{Binding DataContext.TypeText, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            <TextBlock Text="{Binding Data.TypeText, Source={StaticResource proxy}}" />
 						</DataGridTemplateColumn.Header>
 						<DataGridTemplateColumn.CellTemplate>
 							<DataTemplate>
@@ -147,7 +151,7 @@
 					</DataGridTemplateColumn>
 					<DataGridTemplateColumn IsReadOnly="True">
 						<DataGridTemplateColumn.Header>
-							<TextBlock Text="{Binding DataContext.SizeText, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                            <TextBlock Text="{Binding Data.SizeText, Source={StaticResource proxy}}" />
 						</DataGridTemplateColumn.Header>
 						<DataGridTemplateColumn.CellTemplate>
 							<DataTemplate>
