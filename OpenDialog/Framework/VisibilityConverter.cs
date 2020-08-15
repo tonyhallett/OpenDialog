@@ -34,22 +34,41 @@ namespace Gat.Controls.Framework
 
 		public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
 		{
-			if(value is bool)
+            var converted = Visibility.Collapsed;
+
+            if (value is bool)
 			{
 				bool b = (bool)value;
 				if(b)
 				{
-					return Visibility.Visible;
+					converted = Visibility.Visible;
 				}
 			}
-
-			return Visibility.Collapsed;
+            if ((string)parameter == "negate")
+            {
+                if(converted == Visibility.Collapsed)
+                {
+                    converted = Visibility.Visible;
+                }
+                else
+                {
+                    converted = Visibility.Collapsed;
+                }
+                
+            }
+            return converted;
 		}
 
 		public object ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
 		{
 			Visibility visibility = (Visibility)value;
-			return visibility == Visibility.Visible;
+            var converted = visibility == Visibility.Visible;
+            if ((string)parameter == "negate")
+            {
+                converted = !converted;
+            }
+            return converted;
+                
 		}
 
 		#endregion

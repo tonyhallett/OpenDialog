@@ -188,11 +188,13 @@
 					 Margin="0,5" />
 
 			<Label x:Name="FileFilterLabel"
+                   Visibility="{Binding IsDirectoryChooser,Converter={StaticResource VisibilityConverter},ConverterParameter=negate}"
 				   Grid.Column="0"
 				   Grid.Row="1"
 				   Margin="0,5"
 				   Content="{Binding FileFilterText}" />
 			<ComboBox x:Name="FileFilter"
+                      Visibility="{Binding IsDirectoryChooser, Converter={StaticResource VisibilityConverter},ConverterParameter=negate}"
 					  ItemsSource="{Binding FileFilterExtensions}"
 					  SelectedItem="{Binding SelectedFileFilterExtension}"
 					  Grid.Column="1"
