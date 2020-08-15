@@ -63,6 +63,7 @@ namespace Gat.Controls
         private const string _DefaultOpen = "Open";
         private const string _DefaultCancel = "Cancel";
         private const string _DefaultFileName = "File name: ";
+        private const string _DefaultDirectoryName = "Directory name: ";
         private const string _DefaultFileFilter = "File filter: ";
         private const string _DefaultName = "Name";
         private const string _DefaultType = "Type";
@@ -396,6 +397,14 @@ namespace Gat.Controls
             get => _isDirectoryChooser;
             set {
                 _isDirectoryChooser = value;
+                if (IsDirectoryChooser)
+                {
+                    FileNameText = _DefaultDirectoryName;
+                }
+                else
+                {
+                    FileNameText = _DefaultFileName;
+                }
                 OnPropertyChanged("IsDirectoryChooser");
             }
         }
